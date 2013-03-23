@@ -1,0 +1,108 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0
+}
+
+#map-container {
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+
+#map-canvas {
+  height: 100%;
+  margin-left: 300px;
+  z-index: 0;
+}
+
+#map-controls {
+  background-color: #eeeeee;
+  box-shadow: 4px 0 7px #999999;
+  -moz-box-shadow: 4px 0 6px #999999;
+  -webkit-box-shadow: 4px 0 7px #999999;
+  float: left;
+  font-family: arial;
+  height: 100%;
+  left: 300px;
+  margin: 0 0 0 -300px;
+  overflow: auto;
+  padding: 0;
+  position: relative;
+  width: 300px;
+  z-index: 1;
+}
+
+#map-controls h1 {
+  display: block;
+  font-size: 30px;
+  margin: 0;
+  padding: 15px;
+}
+
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+
+h1 a:hover {
+  text-decoration: underline;
+}
+
+#map-controls h2 {
+  font-size: 20px;
+  margin: 0;
+  padding: 10px 15px;
+}
+
+#map-controls ul {
+  border-top: 1px solid #bbbbbb;
+  list-style-type: none;
+  margin: 0 0 15px 0;
+  padding-left: 0px;
+}
+
+ul li {
+  border-bottom: 1px solid #bbbbbb;
+  font-size: 14px;
+  line-height: 35px;
+  width: 100%;
+}
+
+li.selected {
+  background-color: #cccccc;
+  font-weight: bold;
+}
+
+li span {
+  color: #555555;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  padding-left: 25px;
+}
+
+li.selected span {
+  color: black;
+}
+
+li:hover {
+  background-color: white;
+}
+
+li:hover span {
+  color: black;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+div#ad-slot{
+  background-color: white;
+  border-bottom: 1px solid #bbbbbb;
+  border-top: 1px solid #bbbbbb;
+  height: 250px;
+  margin-bottom: 10px;
+  width: 300px;
+}
