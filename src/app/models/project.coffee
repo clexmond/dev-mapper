@@ -12,3 +12,13 @@ define [
       finally
         @set attributes
         @set filtered: false
+
+      poly    = if placemark.polygon then placemark.polygon else placemark.polyline
+      @bounds = @getBounds poly
+
+    getBounds: (poly) ->
+      bounds = new google.maps.LatLngBounds()
+      poly.getPath().forEach (element, index) ->
+          bounds.extend element
+
+      return bounds

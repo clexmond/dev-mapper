@@ -8,11 +8,11 @@ define [
 
     template: _.template template
 
-    render: () ->
+    render: ->
       @$el.html @template()
       @renderSubViews()
 
-    renderSubViews: () ->
+    renderSubViews: ->
       _.each @collection, (project, key) ->
         projectView = new ProjectView model: project
         @$el.find('#projects').append projectView.render()

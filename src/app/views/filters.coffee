@@ -11,18 +11,25 @@ define [
     template: _.template template
 
     initialize: () ->
-      @appliedFilters = []
+      @status  = null
+      @filters = []
       @render()
 
     render: () ->
       @$el.html @template()
 
     toggleFilter: (event) ->
-      type = $(event.currentTarget).data 'filter'
+      @status = $(event.currentTarget).data('status') || @status
+      @filters = []
 
-      if _.indexOf(@appliedFilters, type) > -1
-        @appliedFilters.splice _.indexOf(@appliedFilters, type), 1
-      else
-        @appliedFilters.push type
+      # if _.indexOf(@appliedFilters, type) > -1
+      #   @appliedFilters.splice _.indexOf(@appliedFilters, type), 1
+      # else
+      #   @appliedFilters.push type
 
-      @trigger 'filter', @appliedFilters
+      # Update styles
+      @$el.find('li').removeClass 'selected'
+      $(event.currentTarget).addClass 'selected'
+
+      # Trigger event to allow map filtering
+      @trigger 'filter', @status, @filters

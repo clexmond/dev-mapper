@@ -4,10 +4,13 @@ define [
 
   class Projects extends Backbone.Collection
 
-    applyFilters: (filters) ->
+    applyFilters: (status, filters) ->
       _.each @models, (project) ->
-        console.log project
-        if project.get 'tags'
+
+        if status is project.get 'status'
           project.set filtered: true
         else
           project.set filtered: false
+
+    comparator: (project) ->
+      project.get 'name'

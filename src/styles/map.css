@@ -16,6 +16,15 @@ html, body {
   z-index: 0;
 }
 
+div#ad-slot{
+  background-color: white;
+  border-bottom: 1px solid #bbbbbb;
+  border-top: 1px solid #bbbbbb;
+  height: 250px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
 #map-controls {
   background-color: #eeeeee;
   box-shadow: 4px 0 7px #999999;
@@ -65,13 +74,7 @@ h1 a:hover {
 ul li {
   border-bottom: 1px solid #bbbbbb;
   font-size: 14px;
-  line-height: 35px;
   width: 100%;
-}
-
-li.selected {
-  background-color: #cccccc;
-  font-weight: bold;
 }
 
 li span {
@@ -79,11 +82,34 @@ li span {
   cursor: pointer;
   display: block;
   height: 100%;
+  line-height: 35px;
   padding-left: 25px;
 }
 
-li.selected span {
-  color: black;
+#filters li.selected {
+  background-color: #dff0d8;
+  background-image: url('../images/check.png');
+  background-position: 25px 6px;
+  background-repeat: no-repeat;
+}
+
+#filters li.selected span {
+  color: #468847;
+  font-weight: bold;
+  padding-left: 53px;
+}
+
+#projects li.selected {
+  background-color: #d9edf7;
+}
+
+#projects li.selected span {
+  color: #3a87ad;
+  font-weight: bold;
+}
+
+#projects span.clicked {
+  font-weight: bold;
 }
 
 li:hover {
@@ -94,15 +120,25 @@ li:hover span {
   color: black;
 }
 
-input[type="checkbox"] {
+div.project-info {
   display: none;
+  font-size: 12px;
+  margin: 15px 25px;
+  width: 250px;
 }
 
-div#ad-slot{
-  background-color: white;
-  border-bottom: 1px solid #bbbbbb;
-  border-top: 1px solid #bbbbbb;
-  height: 250px;
-  margin-bottom: 10px;
-  width: 300px;
+.project-info img {
+  border: 1px solid #bbbbbb;
+  height: auto;
+  width: 248px;
+}
+
+.project-info a {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+.project-info a:hover {
+  color: #005580;
+  text-decoration: underline;
 }

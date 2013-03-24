@@ -1,1 +1,12 @@
 <span><%= name %></span>
+<div class="project-info">
+  <% if (typeof image !== 'undefined') { %>
+  <img src="<%= image %>" />
+  <% } %>
+  <% if (typeof blurb !== 'undefined') { %>
+  <p><%= blurb %>"</p>
+  <% } %>
+  <% if (typeof url !== 'undefined') { %>
+  <a href="<%= url %>" target="_blank">More info on <%= name %></a>
+  <% } %>
+</div>
