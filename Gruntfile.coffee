@@ -30,6 +30,7 @@ module.exports = (grunt) ->
         files: [
           { src: 'src/map.html', dest: 'build/map.html' }
           { src: 'src/app/map.kml', dest: 'build/app/map.kml' }
+          { src: 'src/favicon.ico', dest: 'build/favicon.ico' }
           { expand: true, cwd: 'src/images', src: [ '**' ], dest: 'build/images' }
         ]
     watch:
