@@ -4,13 +4,31 @@ define [
 
   class Overlay extends Backbone.View
 
+    applyHoverColor: (hover) ->
+      type = if @model.get 'polygon' then 'polygon' else 'polyline'
+      poly = if @model.get 'polygon' then @model.get 'polygon' else @model.get 'polyline'
+
+      try
+        if type is 'polygon'
+          if hover
+            poly.setOptions fillColor: @colors.hover
+          else
+            poly.setOptions fillColor: @colors.base
+        else if type is 'polyline'
+          if hover
+            poly.setOptions strokeColor: @colors.hover
+          else
+            poly.setOptions strokeColor: @colors.base
+
     initialize: (options) ->
       @map    = options.map
       @colors =
-        base:     '#000000'
-        selected: '#0000ff'
+        base:     '#0000ff'
+        selected: '#ff0000'
+        hover:    '#00ff00'
 
       @listenTo @model, 'change', @render
+      @listenTo @model, 'hover', @applyHoverColor
       @render()
 
     render: ->

@@ -108,8 +108,13 @@ li span {
   font-weight: bold;
 }
 
-#projects span.clicked {
-  font-weight: bold;
+#projects li.clicked {
+  background-color: white !important;
+}
+
+#projects li.clicked span {
+  color: black !important;
+  font-weight: bold !important;
 }
 
 li:hover {
@@ -131,6 +136,10 @@ div.project-info {
   border: 1px solid #bbbbbb;
   height: auto;
   width: 248px;
+}
+
+.project-info p.status {
+  font-weight: bold;
 }
 
 .project-info a {

@@ -3,8 +3,15 @@
   <% if (typeof image !== 'undefined') { %>
   <img src="<%= image %>" />
   <% } %>
+  <% if (status == 'construction') { %>
+  <p class="status">Status: Under construction</p>
+  <% } else if (status == 'proposed') { %>
+  <p class="status">Status: Proposed</p>
+  <% } else if (status == 'completed') { %>
+  <p class="status">Status: Completed</p>
+  <% } %>
   <% if (typeof blurb !== 'undefined') { %>
-  <p><%= blurb %>"</p>
+  <p><%= blurb %></p>
   <% } %>
   <% if (typeof url !== 'undefined') { %>
   <a href="<%= url %>" target="_blank">More info on <%= name %></a>

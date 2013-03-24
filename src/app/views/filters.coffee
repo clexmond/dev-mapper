@@ -19,17 +19,20 @@ define [
       @$el.html @template()
 
     toggleFilter: (event) ->
-      @status = $(event.currentTarget).data('status') || @status
-      @filters = []
+      @$el.find('li').removeClass 'selected'
+
+      if @status is $(event.currentTarget).data('status')
+        @status = null
+      else
+        @status = $(event.currentTarget).data('status') || @status
+        $(event.currentTarget).addClass 'selected'
+
+      # Trigger event to allow map filtering
+      @trigger 'filter', @status, @filters
+
+      # @filters = []
 
       # if _.indexOf(@appliedFilters, type) > -1
       #   @appliedFilters.splice _.indexOf(@appliedFilters, type), 1
       # else
       #   @appliedFilters.push type
-
-      # Update styles
-      @$el.find('li').removeClass 'selected'
-      $(event.currentTarget).addClass 'selected'
-
-      # Trigger event to allow map filtering
-      @trigger 'filter', @status, @filters
