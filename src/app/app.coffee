@@ -8,6 +8,7 @@ define [
   'views/overlay'
   'views/project'
   'text!/app/map.kml'
+  'url'
 ], (Backbone, geoXML3, ProjectModel, ProjectsCollection, MapView, FiltersView, OverlayView, ProjectView, kml) ->
 
   class App
@@ -43,6 +44,15 @@ define [
           app.projects.add projects
 
       @kmlParser.parseKmlString(kml)
+
+      # Center map based on query params
+      if $.url().param('lat') and $.url().param('long')
+        latitdue   = $.url().param('lat')
+        longtitude = $.url().param('long')
+        zoom       = $.url().param('zoom') || 17
+        latLng     = new google.maps.LatLng(latitdue, longtitude)
+        @mapView.googleMap.setCenter latLng
+        @mapView.googleMap.setZoom zoom
 
     buildProjectViews: (project) ->
       # Setup overlay views for each project

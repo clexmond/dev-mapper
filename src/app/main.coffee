@@ -11,6 +11,8 @@ requirejs.config
     backbone:
       deps:    [ 'underscore', 'jquery' ]
       exports: 'Backbone'
+    url:
+      deps: [ 'jquery' ]
 
 require [ 'app' ], (App) ->
   app = new App
