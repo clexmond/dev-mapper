@@ -39,6 +39,17 @@ define [
       @clicked = false
       @hover   = false
       @listenTo @model, 'change', @highlight
+      @listenTo @model, 'overlayClicked', @openProject
+
+    openProject: ->
+      @clicked = true
+      @$el.addClass 'clicked'
+      projectView      = @
+      console.log $('#map-controls').scrollTop(), @$el.offset().top
+      scrollToPosition = $('#map-controls').scrollTop() + @$el.offset().top - 35
+      $('#map-controls').animate scrollTop: scrollToPosition, 800, ->
+        if $.trim(projectView.$el.find('.project-info').html()).length > 0
+          projectView.$el.find('.project-info').slideDown()
 
     render: ->
       if @model.get 'filtered'

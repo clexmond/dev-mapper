@@ -1,6 +1,7 @@
 define [
   'backbone'
-], (Backbone) ->
+  'views/tooltip'
+], (Backbone, Tooltip) ->
 
   class Overlay extends Backbone.View
 
@@ -49,7 +50,14 @@ define [
 
         poly.setMap @map
         model = @model
+
+        # Create tooltip
+        @tooltip = new Tooltip
+          content: @model.get('name')
+          poly:    poly
+
+        # Add event listeners
         google.maps.event.addListener poly, 'click', (event) ->
-          window.open model.get('url'), '_blank'
+          model.trigger 'overlayClicked'
       catch error
         return null
