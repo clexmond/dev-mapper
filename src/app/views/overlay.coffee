@@ -49,7 +49,6 @@ define [
             poly.setOptions strokeColor: @colors.base
 
         poly.setMap @map
-        model = @model
 
         # Create tooltip
         @tooltip = new Tooltip
@@ -57,7 +56,12 @@ define [
           poly:    poly
 
         # Add event listeners
+        overlayView = @
         google.maps.event.addListener poly, 'click', (event) ->
-          model.trigger 'overlayClicked'
+          overlayView.model.trigger 'overlayClicked'
+        google.maps.event.addListener poly, 'mouseover', (event) ->
+          overlayView.applyHoverColor true
+        google.maps.event.addListener poly, 'mouseout', (event) ->
+          overlayView.applyHoverColor false
       catch error
         return null
