@@ -172,6 +172,12 @@ div.project-info {
   text-decoration: underline;
 }
 
+.footer {
+  font-size: 13px;
+  margin: 20px 0;
+  text-align: center;
+}
+
 .footer a {
   color: #005580;
   text-decoration: none;
