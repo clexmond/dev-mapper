@@ -171,3 +171,13 @@ div.project-info {
   color: #005580;
   text-decoration: underline;
 }
+
+.footer a {
+  color: #005580;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #005580;
+  text-decoration: underline;
+}
