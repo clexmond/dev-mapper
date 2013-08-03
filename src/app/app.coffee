@@ -7,9 +7,10 @@ define [
   'views/filters'
   'views/overlay'
   'views/project'
+  'views/permalink'
   'text!/app/map.kml'
   'url'
-], (Backbone, geoXML3, ProjectModel, ProjectsCollection, MapView, FiltersView, OverlayView, ProjectView, kml) ->
+], (Backbone, geoXML3, ProjectModel, ProjectsCollection, MapView, FiltersView, OverlayView, ProjectView, PermalinkView, kml) ->
 
   class App
 
@@ -46,13 +47,18 @@ define [
       @kmlParser.parseKmlString(kml)
 
       # Center map based on query params
-      if $.url().param('lat') and $.url().param('long')
+      if $.url().param('lat') and $.url().param('lng')
         latitdue   = $.url().param('lat')
-        longtitude = $.url().param('long')
+        longtitude = $.url().param('lng')
         zoom       = $.url().param('zoom') || 17
         latLng     = new google.maps.LatLng(latitdue, longtitude)
         @mapView.googleMap.setCenter latLng
-        @mapView.googleMap.setZoom zoom
+        @mapView.googleMap.setZoom parseInt(zoom)
+
+      # Apply permalink view
+      @permalinkView = new PermalinkView
+        el: '#permalink'
+        map: @mapView.googleMap
 
     buildProjectViews: (project) ->
       # Setup overlay views for each project

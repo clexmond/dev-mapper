@@ -187,3 +187,18 @@ div.project-info {
   color: #005580;
   text-decoration: underline;
 }
+
+#permalink img {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+#permalink input {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 25px;
+  width: 100px;
+}

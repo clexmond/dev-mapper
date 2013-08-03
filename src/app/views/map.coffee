@@ -78,3 +78,4 @@ define [
         mapTypeId: google.maps.MapTypeId.ROADMAP
         styles:    @styles
         zoom:      12
+        
